@@ -80,10 +80,23 @@ public class Fraction {
         Fraction newF=new Fraction(newNum,newDen);
         return newF;
     }
-    public void toLowerTerms(){
-
+    public Boolean equals(Fraction equal){
+        double a=this.toDouble();
+        double b=this.toDouble();
+        boolean ifEqual=(a==b);
+        return ifEqual;
+    }
+    public Fraction toLowerTerms(){
+        int factor = gcd(this.numerator, this.denumenator);
+        int newNum = this.numerator / factor;
+        int newDen = this.denumenator / factor;
+        Fraction newF = new Fraction(newNum, newDen);
+        return newF;
     }
     public int GCD(int num,int dem){
-        return  num;
+        if(dem==0){
+            return num;
+        }
+        return GCD(dem,num%dem);
     }
 }
